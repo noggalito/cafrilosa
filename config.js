@@ -70,16 +70,16 @@ config = {
       // Example mail config
       // Visit http://support.ghost.org/mail for instructions
       // ```
-      //  mail: {
-      //      transport: 'SMTP',
-      //      options: {
-      //          service: 'Mailgun',
-      //          auth: {
-      //              user: '', // mailgun username
-      //              pass: ''  // mailgun password
-      //          }
-      //      }
-      //  },
+       mail: {
+         transport: 'SMTP',
+         options: {
+           service: 'mailgun',
+           auth: {
+             user: 'development@app9df5f3aff2604233870d17a1739cc4b4.mailgun.org',
+             pass: 'iiBnl7em!OLa'
+           }
+         }
+       },
       // ```
 
       // #### Database
