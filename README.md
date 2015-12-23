@@ -4,8 +4,14 @@ built using [ghost](https://ghost.org/)
 
 ## development
 
-start dev server
+### dev server
 
 ```
 $ npm start
+```
+
+### theme
+
+```
+$ gulp development
 ```
