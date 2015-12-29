@@ -1,4 +1,4 @@
-=flex($direction: row, $justify-content: flex-start ,$align-items: flex-start )
+=flex($direction: row, $justify-content: flex-start, $align-items: flex-start)
 
   @if $justify-content == start
     $justify-content: flex-start
@@ -15,6 +15,11 @@
   justify-content: $justify-content
   flex-direction: $direction
 
+// responsive
+=mobile
+  @media (max-width: #{$mobile-width})
+    @content
+
 =tablet
   @media (min-width: #{$tablet-width})
     @content
@@ -25,4 +30,18 @@
 
 =desktop-HD
   @media (min-width: #{$desktopHD-width})
+    @content
+
+// utilities
+// as implemented by ionic
+// https://github.com/driftyco/ionic/blob/21e54be63c3b39963813d83a4e2aa4c36784fe3e/scss/_mixins.scss#L191
+=placeholder
+  // Firefox 19+
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+  &::-webkit-input-placeholder
+    // Safari placeholder margin issue
+    text-indent: 0
     @content
