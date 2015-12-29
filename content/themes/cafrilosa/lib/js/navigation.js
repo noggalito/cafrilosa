@@ -1,12 +1,12 @@
-$(function(){
-  'use strict'
-  var $btnMenu = $('.btn-menu');
-  var $navList = $('.nav').find('.nav-list');
+(function () {
+  'use strict';
 
-  $btnMenu.click(function(e){
-    e.preventDefault();
-    $(this).toggleClass('glyphicon-menu-hamburger glyphicon-remove');
-    $navList.toggleClass('is-active');
-  })
+  var btnMenu = '.btn-menu',
+      hamburguerClasses = 'glyphicon-menu-hamburger glyphicon-remove';
 
-});
+  $(document).on('click', btnMenu, function (e) {
+    $(e.originalEvent.target).toggleClass(hamburguerClasses);
+    $('.nav .nav-list').toggleClass('is-active');
+    return false;
+  });
+})();
