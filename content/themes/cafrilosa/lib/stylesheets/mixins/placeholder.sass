@@ -1,0 +1,12 @@
+// as implemented by ionic
+// https://github.com/driftyco/ionic/blob/21e54be63c3b39963813d83a4e2aa4c36784fe3e/scss/_mixins.scss#L191
+=placeholder
+  // Firefox 19+
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+  &::-webkit-input-placeholder
+    // Safari placeholder margin issue
+    text-indent: 0
+    @content
