@@ -1,11 +1,17 @@
-<nav class="navigation">
-  <button class="btn btn-default glyphicon glyphicon-menu-hamburger" type="button" name="nav-button"></button>
-  <figure class="navigation-brand">
-    <img src="" alt="" />
-  </figure>
-  <ul class="navigation-elementsList">
-    {{#foreach navigation}}
-      <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation"><a href="{{url absolute="true"}}">{{label}}</a></li>
-    {{/foreach}}
-  </ul>
-</nav>
+<header class="navigation {{#is "index"}}navigation--home{{/is}}">
+  <div class="container">
+
+    <figure class="navigation-brand">
+      <a href="#"><img src="{{asset 'images/brand.svg'}}" alt="cafrilosa-logo" /></a>
+    </figure>
+
+    <button class="btn btn-default btn-menu glyphicon glyphicon-menu-hamburger" type="button" name="nav-button"></button>
+    <nav class="nav">
+      <ul class="nav-list">
+        {{#foreach navigation}}
+          <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation"><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}
+      </ul>
+    </nav>
+  </div>
+</header>
