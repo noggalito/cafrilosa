@@ -21,25 +21,43 @@
 
     .title
       font-size: 30px
+      +tablet-min
+        margin-top: 100px
 
     .footer-section
       margin: auto
       +mobile-max
         max-width: 320px
+      +tablet-min
+        text-align: left
       h4
         text-transform: uppercase
         color: white
         margin: 30px 0 20px 0
 
+      &.business-address, &.sales-phones
+        +tablet-min
+          padding: 0
+
       &.business-address
         +mobile-max
           max-width: 210px
+        address
+          margin-bottom: 0
 
       &.contact-form
         +mobile-max
           max-width: 300px
           input[type='submit']
             width: 100%
+
+    .footer-body
+      margin: auto
+      // these widths come from bootstrap
+      +desktop-min
+        width: 970px
+      +desktop-HD-min
+        width: 1170px
 
     .footer-foot
       background-color: $tomato
