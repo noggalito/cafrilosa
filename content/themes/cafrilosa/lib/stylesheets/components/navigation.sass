@@ -1,5 +1,107 @@
 .navigation
-  &-elementsList
-    list-style: none
-    padding: 0
-    margin: 0
+  width: 100%
+  background-color: transparent
+  height: 80px
+  position: fixed
+  .container
+    position: relative
+
+  &-brand
+    text-align: right
+    img
+      width: 160px
+      margin-top: 15px
+
+  .btn-menu
+    position: absolute
+    top: 10px
+    left: 20px
+    z-index: 1
+
+  .nav
+    &-list
+      height: 100vh
+      position: absolute
+      width: 100%
+      list-style: none
+      margin: 0
+      padding: 0
+      padding-top: 4em
+      top: 0
+      left: -100%
+      background-color: $tomato
+      transition: 0.3s ease
+      li
+        text-align: center
+        a
+          padding: 1em
+          display: block
+          color: white
+
+//modificator
+.navigation--home
+  background-color: transparent !important
+  .navigation-brand
+    visibility: hidden
+  .nav
+    .nav-list
+      li
+        a
+          color: $black
+
++tablet
+  .navigation
+    background-color: $tomato
+    .btn-menu
+      display: none
+    .container
+      +flex(row, space-between, center)
+      position: relative
+      &:before,
+      &:after
+        content: none
+
+    &-brand
+      img
+        margin-top: 0
+
+    .nav
+      &-current
+        border: 1.5px solid $black
+        border-radius: $regular-radius
+        padding: 0.5em 2em
+      &-list
+        position: relative
+        left: 0
+        height: 80px
+        padding-top: 0
+        +flex(row, end, center)
+        width: auto
+        background-color: transparent
+        li
+          a
+            padding: 0
+            margin-left: 2em
+          &:first-child
+            a
+              margin-left: 0
+
++desktop
+  .navigation
+    .nav
+      &-list
+        li
+          a
+            margin-left: 3em
+          &:first-child
+            a
+              margin-left: 0
+
+.is-active
+  left: 0 !important
+  opacity: 1 !important
+  a
+    color: white !important
+
+.glyphicon-remove
+  color: white !important

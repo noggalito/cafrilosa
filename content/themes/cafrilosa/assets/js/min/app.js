@@ -1,0 +1,1 @@
+$(function(){"use strict";var n=$(".btn-menu"),e=$(".nav").find(".nav-list");n.click(function(n){n.preventDefault(),$(this).toggleClass("glyphicon-menu-hamburger glyphicon-remove"),e.toggleClass("is-active")})});
