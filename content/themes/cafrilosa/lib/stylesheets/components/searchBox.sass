@@ -1,0 +1,24 @@
+.searchBox
+  height: 60px
+  background-color: $white-grey
+  +flex(row, start, center)
+  .box
+    +flex(row, start, center)
+    &-iconContainer
+      background-color: $black
+      padding: 0.5em 2em
+      border-radius: $regular-radius 0 0 $regular-radius
+      i
+        color: white
+        font-size: 20px
+
+    &-input
+      height: 40px
+      width: 100%
+      input
+        height: 100%
+        width: 100%
+        outline: none
+        border: 0
+        border-radius: 0 $regular-radius $regular-radius 0
+        padding: 0 2em
