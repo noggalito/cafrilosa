@@ -1,0 +1,44 @@
+.cover
+  position: relative
+  height: 100vh
+  background-image: radial-gradient(73% 35%, #FFFFFF 26%, #F2F2F2 100%)
+  .container
+    height: 100%
+    +flex(row, start, center)
+
+  &-brand
+    img
+      width: 100%
+    figcaption
+      text-align: center
+  &-image
+    display: none
+    position: absolute
+    bottom: 0
+    right: 0
+
++tablet-min
+  .cover
+    height: 500px
+    &-brand
+      width: 250px
+      figcaption
+        margin-top: 15px
+    &-image
+      display: block
+      width: 450px
+      img
+        width: 100%
+
++desktop-min
+  .cover
+    height: 100vh
+    &-brand
+      width: 350px
+    &-image
+      width: 850px
+
++desktop-HD-min
+  .cover
+    &-image
+      width: 900px
