@@ -1,20 +1,22 @@
 .navigation
   width: 100%
   background-color: transparent
-  height: 80px
-  position: fixed
+  height: 60px
+  position: absolute
+  z-index: 100
+  transition: 0.3s ease
   .container
     position: relative
 
   &-brand
     text-align: right
     img
-      width: 160px
-      margin-top: 15px
+      width: 120px
+      margin-top: 10px
 
   .btn-menu
     position: absolute
-    top: 10px
+    top: 18px
     left: 20px
     z-index: 1
 
@@ -51,7 +53,9 @@
 
 +tablet-min
   .navigation
-    background-color: $tomato
+    background-color: rgba($tomato, 0.8)
+    position: absolute
+    height: 80px
     .btn-menu
       display: none
     .container
@@ -80,23 +84,20 @@
         background-color: transparent
         li
           a
+            font-size: 12px
             padding: 0
-            margin-left: 2em
+            +tablet-min
+              margin-left: 2em
+            +desktop-min
+              margin-left: 3em
+              &:first-child
+                a
+                  margin-left: 0
           &:first-child
             a
               margin-left: 0
 
-+desktop-min
-  .navigation
-    .nav
-      &-list
-        li
-          a
-            margin-left: 3em
-          &:first-child
-            a
-              margin-left: 0
-
+// Complementar class
 .is-active
   left: 0 !important
   opacity: 1 !important
@@ -105,3 +106,17 @@
 
 .glyphicon-remove
   color: white !important
+
+.menu-fixed
+  position: fixed !important
+  &.navigation--home
+    background-color: rgba($tomato, 0.9) !important
+    .navigation-brand
+      visibility: visible
+    .btn-menu
+      color: white
+    .nav
+      .nav-list
+        li
+          a
+            color: white
