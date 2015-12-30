@@ -1,0 +1,21 @@
+.socialChannels
+  position: absolute
+  bottom: 30px
+  left: 0
+  right: 0
+  .container
+    left: 0
+    right: 0
+  a
+    +mobile-max
+      padding: 1em
+      margin-left: 0.5em
+    +tablet-min
+      padding: 0.5em
+      margin-left: 2em
+    i
+      font-size: 22px
+
+    &:first-child
+      i
+        margin-left: 0
