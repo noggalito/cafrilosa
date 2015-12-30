@@ -1,4 +1,15 @@
 {{!< default}}
-<div id="content" class="content" role="main">
-  {{> "loop"}}
-</div>
+<section class="cover">
+  <div class="container">
+    <figure class="cover-brand col-xs-12">
+      <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
+      <figcaption class="col-xs-12 lead">{{@blog.description}}</figcaption>
+    </figure>
+    <figure class="cover-image">
+      <img src="{{@blog.cover}}" alt="{{@blog.title}}" />
+    </figure>
+    <div class="socialChannels">
+      <a href="//twitter.com"><i></i></a>
+    </div>
+  </div>
+</section>
