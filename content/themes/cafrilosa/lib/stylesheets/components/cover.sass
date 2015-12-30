@@ -4,9 +4,10 @@
   background-image: radial-gradient(73% 35%, #FFFFFF 26%, #F2F2F2 100%)
   .container
     height: 100%
-    +flex(row, start, center)
+    +flex(row, center, center)
 
   &-brand
+    max-width: 300px
     img
       width: 100%
     figcaption
@@ -20,6 +21,9 @@
 +tablet-min
   .cover
     height: 500px
+    .container
+      +flex(row, start, center)
+
     &-brand
       width: 250px
       figcaption
@@ -36,9 +40,9 @@
     &-brand
       width: 350px
     &-image
-      width: 850px
+      width: 650px
 
 +desktop-HD-min
   .cover
     &-image
-      width: 900px
+      width: 800px
