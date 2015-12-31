@@ -58,6 +58,9 @@ config = {
     server: {
       host: '0.0.0.0',
       port: process.env.PORT
+    },
+    storage: {
+      active: 'ghost-cloudinary-store'
     }
   },
 
