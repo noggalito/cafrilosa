@@ -12,3 +12,20 @@
   </div>
 </section>
 {{> searchBox}}
+
+<section>
+  {{#foreach posts}}
+    {{#if @first}}
+  <a href="{{url}}">
+    <div class="newPost" style="background-image:url({{image}});">
+      <div class="container">
+        <article class="newPost-info">
+          <h3>Novedades</h3>
+          <h4>{{{title}}}</h4>
+        </article>
+      </div>
+    </div>
+  </a>
+    {{/if}}
+  {{/foreach}}
+</section>
