@@ -18,10 +18,63 @@
         color: white
 
   .productionLines
-    padding: $padding-section 0
+    padding: ($padding-section - 40px) 0
+    +tablet-min
+      padding: $padding-section 0
     .row
-      +flex(row,center,center)
-    article
+      +mobile-max
+        padding-bottom: $padding-section
+
+      +mobile-max
+        +flex(column,center,center)
+      +tablet-min
+        +flex(row, center, center)
+
+      figure
+        img
+          max-width: 300px
+          +mobile-max
+            margin-bottom: 30px
+
+      article
+        +flex(column, center, center)
+        small
+          position: absolute
+        h3
+          margin-top: 0
+        p
+          margin-bottom: 30px
+
+    &--invert
+      background-color: $white-grey
+      .row
+        +mobile-max
+          article
+            order: 1
+          figure
+            order: 0
+
+  .location
+    background-color: $white-grey
+    padding: $padding-section 0 0
+    &-header
       +flex(column, center, center)
-      p
+    &-body
+      +flex(column, center,center)
+      +tablet-min
+        +flex(row, center,center)
+      .brand
         margin-bottom: 30px
+      article
+        +flex(column, center, center)
+        +mobile-max
+          padding-bottom: $padding-section
+          padding-top: ($padding-section - 40px)
+
+        p
+          max-width: 360px
+      .country
+        img
+          position: relative
+          width: 100%
+          z-index: 1
