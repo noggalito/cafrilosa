@@ -3,6 +3,7 @@
   <div class="container">
     <figure class="cover-brand col-xs-12">
       <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
+      <hr>
       <figcaption class="col-xs-12 lead">{{@blog.description}}</figcaption>
     </figure>
     <figure class="cover-image">
@@ -28,4 +29,97 @@
   </a>
     {{/if}}
   {{/foreach}}
+</section>
+
+<section class="productionLines">
+  <div class="container">
+    <div class="row">
+      <article class="col-xs-12 col-sm-8 text-center">
+        <h2>Nuestras líneas de producción</h2>
+        <hr>
+        <p class="col-sm-9">
+          Contamos con 3 lineas de producción. Perfectas para cada ocación para disfrutar con amigos, familia y en eventos especiales. Pero no te quedes solamente con nuestras líneas de producción. Tenemos muchos más productos.
+        </p>
+        <a href="#" class="btn btn-primary" role="button">Ver Productos</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="productionLines">
+  <div class="container">
+    <div class="row">
+      <figure class="col-xs-12 col-sm-6 text-center">
+        <img src="{{asset 'images/linea-economica.png'}}" alt="linea económica - Cafrilosa" />
+      </figure>
+      <article class="col-xs-12 col-sm-6">
+        <div class="col-md-4">
+          <small>Línea</small>
+          <h3>Económica</h3>
+        </div>
+        <hr>
+        <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="productionLines productionLines--invert">
+  <div class="container">
+    <div class="row">
+      <article class="col-xs-12 col-sm-6">
+        <div class="col-md-4">
+          <small>Línea</small>
+          <h3>Especial</h3>
+        </div>
+        <hr>
+        <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </article>
+      <figure class="col-xs-12 col-sm-6 text-center">
+        <img src="{{asset 'images/mortadela-extra.png'}}" alt="mortadela extra - Cafrilosa" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="productionLines">
+  <div class="container">
+    <div class="row">
+      <figure class="col-xs-12 col-sm-6 text-center">
+        <img src="{{asset 'images/jamon-de-pierna.png'}}" alt="jamon de pierna - Cafrilosa" />
+      </figure>
+      <article class="col-xs-12 col-sm-6">
+        <div class="col-md-4">
+          <small>Línea</small>
+          <h3>Premium</h3>
+        </div>
+        <hr>
+        <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="location">
+  <div class="container">
+    <div class="row location-header">
+      <article class="col-xs-12 col-sm-6 text-center">
+        <h4>Encuentranos</h2>
+        <hr>
+      </article>
+    </div>
+    <div class="row location-body">
+      <figure class="col-xs-12 col-sm-6 country">
+        <img src="{{asset 'images/country.png'}}" alt="ubicación cafrilosa en el país - ecuador" />
+      </figure>
+      <article class="col-xs-12 col-sm-6">
+        <figure class="brand">
+          <img src="{{@blog.logo}}" alt="{{@blog.title}}" />
+        </figure>
+        <p class="text-center">
+          Puedes encontrarnos en varias partes del país. Siempre tratando de estar mucho más cerca de ti.
+        </p>
+      </article>
+    </div>
+  </div>
 </section>
