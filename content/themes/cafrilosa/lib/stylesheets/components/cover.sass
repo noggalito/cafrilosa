@@ -1,4 +1,5 @@
-.cover
+//coverPage--home
+.cover--home
   position: relative
   height: 100vh
   background-image: $radial-gradient-grey
@@ -19,7 +20,7 @@
     right: 0
 
 +tablet-min
-  .cover
+  .cover--home
     height: 500px
     .container
       +flex(row, start, center)
@@ -35,7 +36,7 @@
         width: 100%
 
 +desktop-min
-  .cover
+  .cover--home
     height: 100vh
     &-brand
       width: 350px
@@ -43,6 +44,18 @@
       width: 650px
 
 +desktop-HD-min
-  .cover
+  .cover--home
     &-image
       width: 800px
+
+//cover-page
+.cover
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+  height: 100vh
+  +before-gradient($radial-gradient-black, 0.6)
+  +tablet-min
+    height: 500px
+  +desktop-min
+    height: 100vh

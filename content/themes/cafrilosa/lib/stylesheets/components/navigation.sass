@@ -19,6 +19,7 @@
     top: 18px
     left: 20px
     z-index: 1
+    color: white
 
   .nav
     &-list
@@ -43,6 +44,8 @@
 //modificator
 .navigation--home
   background-color: transparent !important
+  .btn-menu
+    color: $black
   .navigation-brand
     visibility: hidden
   .nav
@@ -109,6 +112,8 @@
 
 .menu-fixed
   position: fixed !important
+  &.navigation
+    background-color: rgba($tomato, 0.9) !important
   &.navigation--home
     background-color: rgba($tomato, 0.9) !important
     .navigation-brand
