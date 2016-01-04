@@ -19,6 +19,7 @@
     top: 18px
     left: 20px
     z-index: 1
+    color: white
 
   .nav
     &-list
@@ -43,6 +44,8 @@
 //modificator
 .navigation--home
   background-color: transparent !important
+  .btn-menu
+    color: $black
   .navigation-brand
     visibility: hidden
   .nav
@@ -71,9 +74,10 @@
 
     .nav
       &-current
-        border: 1.5px solid $black
-        border-radius: $regular-radius
-        padding: 0.5em 2em
+        a
+          border: 1.5px solid $black
+          border-radius: $regular-radius
+          padding: 0.5em 2em !important
       &-list
         position: relative
         left: 0
@@ -85,7 +89,6 @@
         li
           a
             font-size: 12px
-            padding: 0
             +tablet-min
               margin-left: 2em
             +desktop-min
@@ -109,6 +112,8 @@
 
 .menu-fixed
   position: fixed !important
+  &.navigation
+    background-color: rgba($tomato, 0.9) !important
   &.navigation--home
     background-color: rgba($tomato, 0.9) !important
     .navigation-brand
