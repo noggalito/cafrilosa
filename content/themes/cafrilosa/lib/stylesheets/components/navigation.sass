@@ -74,9 +74,10 @@
 
     .nav
       &-current
-        border: 1.5px solid $black
-        border-radius: $regular-radius
-        padding: 0.5em 2em
+        a
+          border: 1.5px solid $black
+          border-radius: $regular-radius
+          padding: 0.5em 2em !important
       &-list
         position: relative
         left: 0
@@ -88,7 +89,6 @@
         li
           a
             font-size: 12px
-            padding: 0
             +tablet-min
               margin-left: 2em
             +desktop-min

@@ -48,14 +48,40 @@
     &-image
       width: 800px
 
-//cover-page
+// Cover-page
 .cover
+  position: relative
   background-position: center center
   background-repeat: no-repeat
   background-size: cover
   height: 100vh
   +before-gradient($radial-gradient-black, 0.6)
+
   +tablet-min
     height: 500px
   +desktop-min
     height: 100vh
+  .main-container
+    +flex(row,end,center)
+    height: 100%
+
+
+  .main-article
+    position: relative
+    +flex(column, end, end)
+    color: white
+
+    hr
+      margin: auto 0
+    p
+      color: white
+      text-align: right
+      +desktop-min
+        max-width: 500px
+
+
+// Cover custom page-productos
+.page-productos
+  .cover
+    +desktop-min
+      height: 400px
