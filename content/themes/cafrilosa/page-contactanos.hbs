@@ -2,4 +2,40 @@
 {{#post}}
   {{> cover-page}}
   {{> searchBox}}
+
+  <section class="contact-us-page">
+    <p class="container">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. Sed sit amet arcu aliquet, molestie justo at, auctor nunc. Phasellus ligula ipsum.
+    </p>
+
+    <div class="cafrilosa-map"></div>
+    <div class="hidden">
+      <div class="cafrilosa-map-tooltip">
+        <h4>{{@blog.title}}</h4>
+        <a target="_blank" href="https://goo.gl/maps/zeHfX4ypT7p">ver en google maps</a>
+      </div>
+    </div>
+
+    <p class="container">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. Sed sit amet arcu aliquet, molestie justo at, auctor nunc. Phasellus ligula ipsum.
+    </p>
+
+    <div class="delicatessen-img"></div>
+
+    <h2>Encuéntranos</h2>
+
+    <hr>
+
+    <div class="container business-logo">
+      <img src="{{@blog.logo}}" />
+    </div>
+
+    <p class="container close-to-you-copy">
+      Puedes encontrarnos en varias partes del país. Siempre tratando de estar mucho más cerca de ti.
+    </p>
+
+    <div class="country-img">
+      <img src="{{asset 'images/country.png'}}" alt="ubicación cafrilosa en el país - ecuador" />
+    </div>
+  </section>
 {{/post}}
