@@ -1,3 +1,5 @@
+$secondRowHeight: 320px
+
 .contact-us-page
   text-align: center
   p
@@ -16,18 +18,21 @@
         font-weight: normal
       a
         text-decoration: underline
-  .second-row
-    position: relative
-    +tablet-min
-      .text
-        position: absolute
-        right: 0
+  +tablet-min
+    .first-row
+      +flex(row, center, center)
+    .second-row
+      min-height: $secondRowHeight
+      +flex(row, center, center)
+    .delicatessen-img
+      position: absolute
+      left: 0
   .delicatessen-img
     background-image: url(../images/delicatessen.jpg)
     background-position: center
     background-size: cover
     background-repeat: no-repeat
-    height: 320px
+    height: $secondRowHeight
   .business-logo
     margin: 3em auto
   .close-to-you-copy
