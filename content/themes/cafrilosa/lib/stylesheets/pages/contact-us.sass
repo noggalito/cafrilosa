@@ -4,16 +4,24 @@
     margin: 3em auto
     color: $cool-grey
   h2
-    margin-top: 2em
+    margin-top: 1em
   .cafrilosa-map
     margin: 3em auto
     height: 410px
+    .map-container
+      height: 100%
     .cafrilosa-map-tooltip
       text-align: center
       h4, a
         font-weight: normal
       a
         text-decoration: underline
+  .second-row
+    position: relative
+    +tablet-min
+      .text
+        position: absolute
+        right: 0
   .delicatessen-img
     background-image: url(../images/delicatessen.jpg)
     background-position: center
@@ -24,8 +32,30 @@
     margin: 3em auto
   .close-to-you-copy
     color: $greyish-brown
-  .country-img
-    padding: 1em
-    margin: 3em auto
-    img
-      max-width: 100%
+    +tablet-min
+      padding-right: 2em
+  .find-us
+    margin-top: 1em
+    padding-top: 1px
+    background-color: $white-grey
+    +tablet-min
+      .trademark
+        padding-left: 0
+      .country-img
+        padding-right: 0
+        position: absolute
+        z-index: 1
+        img
+          padding-right: 0
+          padding-top: 3em
+    +desktop-min
+      padding-bottom: 80px
+    +desktop-HD-min
+      padding-bottom: 150px
+    .country-img
+      margin: 1em auto
+      img
+        max-width: 100%
+        max-height: 550px
+        +mobile-max
+          padding: 1em
