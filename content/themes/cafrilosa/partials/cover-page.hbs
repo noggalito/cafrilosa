@@ -1,11 +1,15 @@
 <section class="cover" style="background-image:url('{{image}}');">
   <div class="container main-container">
     <article class="main-article">
-      <h1>{{title}}</h1>
-      <hr>
-      <p>
-        {{content}}
-      </p>
+      {{#if title}}
+          <h1>{{title}}</h1>
+          <hr>
+          <p>{{content}}</p>
+        {{else}}
+          <h1>{{name}}</h1>
+          <hr>
+          <p>{{description}}</p>
+      {{/if}}
     </article>
     {{> socialChannels}}
   </div>

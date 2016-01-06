@@ -1,0 +1,12 @@
+{{!< default}}
+{{#tag}}
+  {{> cover-page}}
+  {{> searchBox}}
+{{/tag}}
+<section class="u-paddingSection">
+  <div class="container">
+    {{#foreach posts}}
+      {{> product}}
+    {{/foreach}}
+  </div>
+</section>

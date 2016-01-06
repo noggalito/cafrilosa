@@ -2,4 +2,14 @@
 {{#post}}
   {{> cover-page}}
   {{> searchBox}}
+
+  <section class="u-paddingSection">
+    <div class="container">
+      {{#get "posts" limit="all" include="tags" as |categories|}}
+        {{#foreach categories}}
+          {{> category}}
+        {{/foreach}}
+      {{/get}}
+    </div>
+  </section>
 {{/post}}
