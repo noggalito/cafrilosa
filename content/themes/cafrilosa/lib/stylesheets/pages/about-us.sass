@@ -25,11 +25,50 @@ section.about-us-page
   .images
     margin: 4em 0
 
+  +tablet-min
+    .antano, .presente
+      +flex(row, center, center)
+
   .antano
     .images
-      .col-xs-6
-        +flex(row, center, center)
-        padding: 0
+      img
+        max-width: 400px
+      +mobile-max
+        .col-xs-6
+          +flex(row, center, center)
+          padding: 0
+      +tablet-min
+        .col-sm-12
+          height: 15em
+        .col-sm-12:nth-child(1) img
+          margin-left: -50px
+        .col-sm-12:nth-child(2) img
+          margin-left: -10px
+          z-index: 2
+        .col-sm-12:nth-child(3) img
+          z-index: 1
+          margin-left: 30px
+        .col-sm-12:nth-child(4) img
+          margin-left: -50px
+      +desktop-min
+        .antano
+          +flex(row, start, start)
+        .col-sm-12
+          height: 20em
+
+  .antano-separator
+    +tablet-min
+      min-height: 10em
+      background-color: $white-grey
+
+  .presente
+    +tablet-min
+      min-height: 380px
+      position: relative
+      .images
+        position: absolute
+        left: 0
+        bottom: -2em
 
   .vision
     background-color: $white-grey
