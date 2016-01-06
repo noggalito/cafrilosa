@@ -1,32 +1,61 @@
 {{!< default}}
-<section class="cover">
-  <div class="container">
-    <figure class="cover-brand col-xs-12">
-      <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
-      <hr>
-      <figcaption class="col-xs-12 lead">{{@blog.description}}</figcaption>
-    </figure>
-    <figure class="cover-image">
-      <img src="{{@blog.cover}}" alt="{{@blog.title}}" />
-    </figure>
-    {{> socialChannels}}
-  </div>
-</section>
-{{> searchBox}}
+{{#post}}
+  {{> cover-page}}
+  {{> searchBox}}
 
-<section class="about-us-page">
-  <div class="container">
-    <div class="row">
-      <article class="col-sm-6">
-        <h2>Antaño</h2>
-        <hr>
-        <p>
-          El 11 de Julio 1965 se fundó Cafrilosa con la misión de elaborar y comercializar productos alimenticios con elevados estándares de calidad. Altos niveles de servicio y excelencia a precios competitivos para nuestros consumidores permite mantener y desarrollar a nuestra empresa y sus colaboradores. Una empresa que nace de un grupo de lojanos soñadores. Para solucionar una necesidad de aquella época, ya que los ganaderos no podían vender sus recursos cerca de Loja.
-        </p>
-        <p>
-          En 1967 se constituye la compañía y se contrata una compañía Holandesa que es la misma que nos provee de las máquinas necesarias para su funcionamiento, dando así paso para que en septiembre de 1970 se ignaugure la nueva planta de faenamiento. El consejo junto con un grupo de inversionistas deciden que no es rentable por lo tanto empiezan a diseñar la nueva planta de embutidos el cual se concluye en 1990. Y dado esto y otros hitos en nuestra historia en Octubre de 1992 abre sus puertas indutria de embutidos Cafrilosa.
-        </p>
-      </article>
+  <section class="about-us-page">
+    <div class="container antano">
+      <div class="row">
+        {{#get "posts" slug="antano" as |article|}}
+          {{> acerca-de-article article=article}}
+        {{/get}}
+      </div>
+      <div class="images row">
+        <div class="col-xs-6">
+          <img src="{{asset 'images/antano-1.jpg'}}" />
+        </div>
+        <div class="col-xs-6">
+          <img src="{{asset 'images/antano-2.jpg'}}" />
+        </div>
+        <div class="col-xs-6">
+          <img src="{{asset 'images/antano-3.jpg'}}" />
+        </div>
+        <div class="col-xs-6">
+          <img src="{{asset 'images/antano-4.jpg'}}" />
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+
+    <div class="container presente">
+      <div class="row">
+        {{#get "posts" slug="presente" as |article|}}
+          {{> acerca-de-article article=article}}
+        {{/get}}
+      </div>
+      <div class="images">
+        <div class="col-sm-6">
+          <img src="{{asset 'images/certificado-cafrilosa.png'}}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container vision">
+      <div class="row">
+        {{#get "posts" slug="vision" as |article|}}
+          {{> acerca-de-article article=article}}
+        {{/get}}
+      </div>
+    </div>
+
+    <div class="container nuestro-equipo">
+      <div class="row">
+        {{#get "posts" slug="nuestro-equipo" as |article|}}
+          {{> acerca-de-article article=article}}
+        {{/get}}
+      </div>
+      <div class="images">
+        <img src="{{asset 'images/nuestro-equipo.jpg'}}" />
+      </div>
+    </div>
+  </section>
+{{/post}}

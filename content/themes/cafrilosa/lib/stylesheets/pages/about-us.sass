@@ -12,3 +12,36 @@ section.about-us-page
   p
     font-family: Merriweather
     font-style: italic
+    margin: 0 1em
+
+  img
+    max-width: 100%
+    box-shadow: 0 2px 4px $black-50
+
+  article
+    margin: 2em 0
+    text-align: center
+
+  .images
+    margin: 4em 0
+
+  .antano
+    .images
+      .col-xs-6
+        +flex(row, center, center)
+        padding: 0
+
+  .vision
+    background-color: $white-grey
+
+  .nuestro-equipo
+    padding: 0
+    width: 100%
+    h2
+      color: $greyish-brown
+      font-family: Merriweather
+      font-size: 40px
+    .row
+      +flex(row, center, center)
+    .images
+      margin-bottom: 0
