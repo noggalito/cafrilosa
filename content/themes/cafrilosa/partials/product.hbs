@@ -1,0 +1,47 @@
+<div class="product">
+  <a href="#" data-toggle="modal" data-target="#myModal-{{id}}">
+      <article class="product-single col-xs-12 col-sm-4">
+        <div class="image" style="background-image:url(
+        {{#if image}}
+          {{image}}
+        {{else}}
+          {{asset 'images/modern-logo2.svg'}}
+        {{/if}}
+      );">
+        <div class="titleContainer">
+          <h5 class="title">{{title}}</h5>
+        </div>
+      </div>
+    </article>
+  </a>
+
+  <div class="modal fade" id="myModal-{{id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"> <i class="glyphicon glyphicon-remove"></i></span></button>
+          <h3 class="modal-title" id="myModalLabel">{{title}}</h3>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <figure class="col-xs-12 col-sm-6">
+              {{#if image}}
+                <img src="{{image}}" alt="Cafrilosa - {{title}}" />
+                {{else}}
+                <img src="{{asset 'images/modern-logo2.svg'}}">
+              {{/if}}
+            </figure>
+            <article class="col-xs-12 col-sm-6">
+              <h2>{{title}}</h2>
+              <hr>
+              <p>{{content}}</p>
+            </article>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <p><i class="glyphicon glyphicon-info-sign"></i>para salir de esta vista hacer click fuera de esta ventana</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
