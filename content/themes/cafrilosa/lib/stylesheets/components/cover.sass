@@ -85,3 +85,14 @@
   .cover
     +desktop-min
       height: 400px
+
+.post-template,
+.tag-template
+  .cover
+    +tablet-min
+      height: 400px
+    .main-container
+      +flex(row, end, end)
+      h1
+        +tablet-min
+          transform: translateY(-50%)
