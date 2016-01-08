@@ -40,28 +40,50 @@ section.about-us-page
       +tablet-min
         .col-sm-12
           height: 15em
-        .col-sm-12:nth-child(1) img
-          margin-left: -50px
-        .col-sm-12:nth-child(2) img
-          margin-left: -10px
-          z-index: 2
-        .col-sm-12:nth-child(3) img
-          z-index: 1
-          margin-left: 30px
-        .col-sm-12:nth-child(4) img
-          margin-left: -50px
-      +desktop-min
-        .antano
-          +flex(row, start, start)
+          &:nth-child(1) img
+            margin-left: -50px
+          &:nth-child(2)
+            z-index: 2
+            img
+              margin-left: -10px
+          &:nth-child(3)
+            z-index: 1
+            img
+              margin-left: 30px
+          &:nth-child(4)
+            z-index: 1
+            img
+              margin-left: -50px
+    +desktop-min
+      +flex(row, center, start)
+      height: 600px
+      .images
+        img
+          max-width: 450px
         .col-sm-12
-          height: 20em
+          height: 300px
+          &:nth-child(1) img
+            margin-left: 50px
+          &:nth-child(2) img
+            margin-left: 0px
+          &:nth-child(3) img
+            margin-left: -420px
+            margin-top: -80px
+          &:nth-child(4) img
+            margin-top: -300px
+            margin-left: 50px
+
 
   .antano-separator
     +tablet-min
       min-height: 10em
       background-color: $white-grey
+    +desktop-min
+      min-height: 500px
 
   .presente
+    .images
+      text-align: center
     +tablet-min
       min-height: 380px
       position: relative
@@ -69,9 +91,23 @@ section.about-us-page
         position: absolute
         left: 0
         bottom: -2em
+    +desktop-min
+      margin: 2em 0
+      .images
+        max-width: 480px
+        right: 50%
+        left: initial
+        bottom: -150px
 
   .vision
     background-color: $white-grey
+    +desktop-min
+      margin: 5em 0
+      min-height: 450px
+      & > div
+        padding: 100px 0
+      article
+        margin: 5em 0
 
   .nuestro-equipo
     padding: 0
