@@ -1,0 +1,61 @@
+{{!< default}}
+{{#post}}
+  {{> cover-page}}
+  {{> searchBox}}
+
+  <section class="about-us-page">
+    <div class="container antano">
+      <div class="col-sm-6">
+        {{#get "posts" slug="antano" as |article|}}
+          {{> acerca-de-article article=article}}
+        {{/get}}
+      </div>
+      <div class="images col-sm-6">
+        <div class="col-xs-6 col-sm-12">
+          <img src="{{asset 'images/antano-1.jpg'}}" />
+        </div>
+        <div class="col-xs-6 col-sm-12">
+          <img src="{{asset 'images/antano-2.jpg'}}" />
+        </div>
+        <div class="col-xs-6 col-sm-12">
+          <img src="{{asset 'images/antano-3.jpg'}}" />
+        </div>
+        <div class="col-xs-6 col-sm-12">
+          <img src="{{asset 'images/antano-4.jpg'}}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="antano-separator"></div>
+
+    <div class="container presente">
+      <div class="col-sm-6 col-sm-offset-6">
+        {{#get "posts" slug="presente" as |article|}}
+          {{> acerca-de-article article=article}}
+        {{/get}}
+      </div>
+      <div class="images col-sm-6">
+        <img src="{{asset 'images/certificado-cafrilosa.png'}}" />
+      </div>
+    </div>
+
+    <div class="vision">
+      <div class="col-sm-8 col-sm-offset-2">
+        {{#get "posts" slug="vision" as |article|}}
+          {{> acerca-de-article article=article}}
+        {{/get}}
+      </div>
+    </div>
+
+    <div class="container nuestro-equipo">
+      <div class="col-sm-8 col-sm-offset-2">
+        {{#get "posts" slug="nuestro-equipo" as |article|}}
+          {{> acerca-de-article article=article}}
+        {{/get}}
+      </div>
+      <div class="images">
+        <img src="{{asset 'images/nuestro-equipo.jpg'}}" />
+      </div>
+    </div>
+  </section>
+{{/post}}

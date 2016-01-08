@@ -1,0 +1,122 @@
+section.about-us-page
+  margin-top: 30px
+  +mobile-max
+    text-align: center
+
+  h2
+    color: $tomato
+    font-family: Pacifico
+    +tablet-min
+      font-size: 40px
+
+  p
+    font-family: Merriweather
+    font-style: italic
+    margin: 0 1em
+
+  img
+    max-width: 100%
+    box-shadow: 0 2px 4px $black-50
+
+  article
+    margin: 2em 0
+    text-align: center
+
+  .images
+    margin: 4em 0
+
+  +tablet-min
+    .antano, .presente
+      +flex(row, center, center)
+
+  .antano
+    .images
+      img
+        max-width: 400px
+      +mobile-max
+        .col-xs-6
+          +flex(row, center, center)
+          padding: 0
+      +tablet-min
+        .col-sm-12
+          height: 15em
+          &:nth-child(1) img
+            margin-left: -50px
+          &:nth-child(2)
+            z-index: 2
+            img
+              margin-left: -10px
+          &:nth-child(3)
+            z-index: 1
+            img
+              margin-left: 30px
+          &:nth-child(4)
+            z-index: 1
+            img
+              margin-left: -50px
+    +desktop-min
+      +flex(row, center, start)
+      height: 600px
+      .images
+        img
+          max-width: 450px
+        .col-sm-12
+          height: 300px
+          &:nth-child(1) img
+            margin-left: 50px
+          &:nth-child(2) img
+            margin-left: 0px
+          &:nth-child(3) img
+            margin-left: -420px
+            margin-top: -80px
+          &:nth-child(4) img
+            margin-top: -300px
+            margin-left: 50px
+
+
+  .antano-separator
+    +tablet-min
+      min-height: 10em
+      background-color: $white-grey
+    +desktop-min
+      min-height: 500px
+
+  .presente
+    .images
+      text-align: center
+    +tablet-min
+      min-height: 380px
+      position: relative
+      .images
+        position: absolute
+        left: 0
+        bottom: -2em
+    +desktop-min
+      margin: 2em 0
+      .images
+        max-width: 480px
+        right: 50%
+        left: initial
+        bottom: -150px
+
+  .vision
+    background-color: $white-grey
+    +desktop-min
+      margin: 5em 0
+      min-height: 450px
+      & > div
+        padding: 100px 0
+      article
+        margin: 5em 0
+
+  .nuestro-equipo
+    padding: 0
+    width: 100%
+    h2
+      color: $greyish-brown
+      font-family: Merriweather
+      font-size: 40px
+    .row
+      +flex(row, center, center)
+    .images
+      margin-bottom: 0
