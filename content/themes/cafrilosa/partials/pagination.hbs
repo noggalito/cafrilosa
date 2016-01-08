@@ -1,24 +1,7 @@
 <nav class="pagination" role="navigation">
-    <ul id="pagination-list" class="page-number  pagination"></ul>
-    {{!-- Placeholder for number of total pages --}}
-    <div id="page-total" style="display:none;">{{pages}}</div>
-    {{!-- Placeholder for current page --}}
-    <div id="page-current" style="display:none;">{{page}}</div>
+  <ul id="pagination-list" class="page-number  pagination"></ul>
+  {{!-- Placeholder for number of total pages --}}
+  <div id="page-total" style="display:none;">{{pages}}</div>
+  {{!-- Placeholder for current page --}}
+  <div id="page-current" style="display:none;">{{page}}</div>
 </nav>
-
-<script type="text/javascript">
-(function () {
-
-  var pageTotal = document.getElementById('page-total').innerHTML;
-  var pageCurrent = document.getElementById('page-current').innerHTML;
-  var nav = document.getElementById('pagination-list');
-
-  for (i = 1; i <= pageTotal; i++) {
-    if (i == pageCurrent) {
-      nav.innerHTML = nav.innerHTML + "<li class='active'><a href='#'>" + i + "</a></li>";
-    } else {
-      nav.innerHTML = nav.innerHTML + "<li><a href=/tag/novedades/page/" + i + ">" + i + "</a></li>";
-    }
-  }
-})();
-</script>
