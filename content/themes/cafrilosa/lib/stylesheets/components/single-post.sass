@@ -1,0 +1,23 @@
+.post
+  +flex(column, center, center )
+  .meta-data
+    +flex(row, space-between, center)
+    width: 100%
+    margin-bottom: $padding-section - 40px
+    time
+      font-weight: bold
+    .share
+      p
+        +flex(row, center, center)
+        a
+          font-size: 30px
+          margin: 0 10px
+          &.icon-twitter
+            color: lighten($cerulean, 10%)
+          &.icon-facebook
+            color: darken($cerulean, 20%)
+
+  .single-post
+    p
+      margin-bottom: 30px
+      color: $black-80
