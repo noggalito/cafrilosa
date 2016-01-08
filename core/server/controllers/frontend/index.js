@@ -4,23 +4,24 @@
 
 /*global require, module */
 
-var _           = require('lodash'),
-    api         = require('../../api'),
-    rss         = require('../../data/xml/rss'),
-    path        = require('path'),
-    config      = require('../../config'),
-    errors      = require('../../errors'),
-    filters     = require('../../filters'),
-    Promise     = require('bluebird'),
-    templates    = require('./templates'),
-    routeMatch  = require('path-match')(),
-    safeString  = require('../../utils/index').safeString,
-    handleError = require('./error'),
-    fetchData   = require('./fetch-data'),
-    formatResponse = require('./format-response'),
-    channelConfig  = require('./channel-config'),
+var _                  = require('lodash'),
+    api                = require('../../api'),
+    rss                = require('../../data/xml/rss'),
+    path               = require('path'),
+    config             = require('../../config'),
+    errors             = require('../../errors'),
+    filters            = require('../../filters'),
+    mailer             = require('../../mail'),
+    Promise            = require('bluebird'),
+    templates          = require('./templates'),
+    routeMatch         = require('path-match')(),
+    safeString         = require('../../utils/index').safeString,
+    handleError        = require('./error'),
+    fetchData          = require('./fetch-data'),
+    formatResponse     = require('./format-response'),
+    channelConfig      = require('./channel-config'),
     setResponseContext = require('./context'),
-    setRequestIsSecure   = require('./secure'),
+    setRequestIsSecure = require('./secure'),
 
     frontendControllers,
     staticPostPermalink = routeMatch('/:slug/:edit?');
@@ -225,6 +226,34 @@ frontendControllers = {
         } else {
             return res.render(defaultPage, data);
         }
+    },
+    submitContactForm: function(req, res){
+        var name    = req.body.name,
+            email   = req.body.email,
+            message = req.body.message;
+
+        var sender;
+        if (name !== undefined) {
+          sender = name + '<' + email + '>';
+        } else {
+          sender = email;
+        }
+
+        var toAddress = process.env.CONTACT_MAIL || '';
+        var mailOptions = {
+            from: sender,
+            to: toAddress,
+            subject: 'Mensaje desde el sitio web',
+            html: "Nombre: " + name + " - Mensaje: " + message + ' - From: ' + email
+        };
+
+        mailer.send(mailOptions).then(function(data) {
+            res.status(200);
+            res.send('OK');
+        }).error(function(error){
+            res.status(500);
+            res.send('ERROR');
+        });
     }
 };
 
