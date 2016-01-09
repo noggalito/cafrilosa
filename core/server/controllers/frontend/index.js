@@ -232,7 +232,7 @@ frontendControllers = {
             email   = req.body.email,
             message = req.body.message;
 
-        var toAddress = process.env.CONTACT_MAIL || 'mvinandev@gmail.com';
+        var toAddress = process.env.CONTACT_MAIL || '';
         var mailOptions = {
             from: email,
             to: toAddress,
