@@ -232,20 +232,55 @@ frontendControllers = {
             email   = req.body.email,
             message = req.body.message;
 
-        var toAddress = process.env.CONTACT_MAIL || '';
-        var mailOptions = {
-            from: email,
-            to: toAddress,
-            subject: 'Mensaje desde el sitio web',
-            html: "Nombre: " + name + " - Mensaje: " + message + ' - From: ' + email
-        };
+        var dataFields = [name, email, message];
 
-        mailer.send(mailOptions).then(function(data) {
-            res.status(200);
-            res.send('OK');
-        }).error(function(error){
-            res.status(500);
-            res.send('ERROR');
+        var invalid = _.any(dataFields, function (data) {
+          return !data || data.trim() == '';
+        });
+
+        if (invalid) {
+          res.send('params error');
+          return false;
+        }
+
+        var recipientRoles = [
+          'owner',
+          'admin',
+          'editor'
+        ];
+
+        api.users.browse({
+          limit: 'all',
+          include: 'roles',
+          force_emails: true
+        }).then(function (response) {
+          var users = response['users'];
+          var recipients = _.filter(users, function (user) {
+            return _.any(user.roles, function (role) {
+              return _.includes(
+                recipientRoles,
+                role.name.toLowerCase()
+              );
+            });
+          });
+
+          var toAddress = _.map(recipients, 'email').join(',');
+          var mailOptions = {
+              from: email,
+              to: toAddress,
+              subject: 'Mensaje desde ' + config.theme.title,
+              html: '<p>' + name + ' ' + email + ':</p>' +
+                    '<p>' + message + '</p>' +
+                    '<p>' + config.theme.title + ' - ' + config.url + '</p>'
+          };
+
+          mailer.send(mailOptions).then(function(data) {
+              res.status(200);
+              res.send('OK');
+          }).error(function(error){
+              res.status(500);
+              res.send('ERROR');
+          });
         });
     }
 };
