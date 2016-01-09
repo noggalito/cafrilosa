@@ -2,3 +2,4 @@ node_modules/
 ghost-dev.db
 content/images/*
 npm-debug.log
+.env.json
