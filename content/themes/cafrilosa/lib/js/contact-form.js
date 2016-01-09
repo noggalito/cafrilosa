@@ -1,63 +1,48 @@
 (function(){
+  'use strict';
 
-  var successTemplate = "<div class='alert alert-success fade in'>"+
-                          "<a href='#' class='close' data-dismiss='alert' aria-label='close' style='color:black; opacity:1;'>&times;</a>"+
-                          "<strong>{{name}}</strong> {{message.success}}"+
-                        "</div>"
+  var $form = $('form.contact-form');
+  var clearInputs = function() {
+    $form.each(function(){
+      this.reset();
+    });
+  };
 
-  var failTemplate = "<div class='alert alert-danger fade in'>"+
-                        "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>"+
-                        "<strong>{{name}}</strong> {{message.fail}}"+
-                      "</div>"
-
-  $( "#form" ).on('submit',function(e) {
-    e.preventDefault();
-
-    var $form = $(this),
-      name = $form.find( "input[name='name']" ).val(),
+  $form.on('submit',function(e) {
+    var name = $form.find( "input[name='name']" ).val(),
       email = $form.find( "input[name='email']" ).val(),
       message = $form.find( "textarea[name='message']" ).val(),
       url = $form.attr( "action" );
 
-    var posting = $.post( url,
-      {
-        name: name,
-        email: email,
-        message: message
-      }
+    var posting = $.post(url, {
+      name: name,
+      email: email,
+      message: message
+    });
+
+    var alertTemplate = Handlebars.compile(
+      $('.contact-form-response-template').html()
     );
 
-    var infoAlert = {
-      success: Handlebars.compile(successTemplate),
-      fail: Handlebars.compile(failTemplate)
-    }
-
-    var alertData = {
-      name: name,
-      message: {
-        fail: "Lo sentimos! Tenemos problemas al enviar tu mensaje. Intentalo mas tarde, por favor.",
-        success: "Tu mensaje se envió exitosamente. Tan pronto como sea posible nos pondremos en contacto."
-      }
-    }
-
-    var successAlert = infoAlert.success(alertData);
-    var failAlert = infoAlert.fail(alertData);
-
     posting.done(function(data){
-      $form.append(successAlert);
+      var context = {
+        name: name,
+        kind: 'success',
+        message: 'tu mensaje ha sido enviado por correo. Nos pondremos en contacto contigo.'
+      };
+      $form.append(alertTemplate(context));
       clearInputs();
     });
 
     posting.fail(function(data){
-      $form.append(failAlert);
-    })
+      var context = {
+        name: name,
+        kind: 'danger',
+        message: ' no hemos podido enviar tu mensaje. Por favor inténtalo más tarde.'
+      };
+      $form.append(alertTemplate(context));
+    });
 
-    function clearInputs(){
-      $form.each(function(){
-        this.reset();
-      })
-    }
-
+    return false;
   });
-
 })();
