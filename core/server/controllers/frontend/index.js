@@ -232,16 +232,9 @@ frontendControllers = {
             email   = req.body.email,
             message = req.body.message;
 
-        var sender;
-        if (name !== undefined) {
-          sender = name + '<' + email + '>';
-        } else {
-          sender = email;
-        }
-
-        var toAddress = process.env.CONTACT_MAIL || '';
+        var toAddress = process.env.CONTACT_MAIL || 'mvinandev@gmail.com';
         var mailOptions = {
-            from: sender,
+            from: email,
             to: toAddress,
             subject: 'Mensaje desde el sitio web',
             html: "Nombre: " + name + " - Mensaje: " + message + ' - From: ' + email
