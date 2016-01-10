@@ -4,23 +4,24 @@
 
 /*global require, module */
 
-var _           = require('lodash'),
-    api         = require('../../api'),
-    rss         = require('../../data/xml/rss'),
-    path        = require('path'),
-    config      = require('../../config'),
-    errors      = require('../../errors'),
-    filters     = require('../../filters'),
-    Promise     = require('bluebird'),
-    templates    = require('./templates'),
-    routeMatch  = require('path-match')(),
-    safeString  = require('../../utils/index').safeString,
-    handleError = require('./error'),
-    fetchData   = require('./fetch-data'),
-    formatResponse = require('./format-response'),
-    channelConfig  = require('./channel-config'),
+var _                  = require('lodash'),
+    api                = require('../../api'),
+    rss                = require('../../data/xml/rss'),
+    path               = require('path'),
+    config             = require('../../config'),
+    errors             = require('../../errors'),
+    filters            = require('../../filters'),
+    mailer             = require('../../mail'),
+    Promise            = require('bluebird'),
+    templates          = require('./templates'),
+    routeMatch         = require('path-match')(),
+    safeString         = require('../../utils/index').safeString,
+    handleError        = require('./error'),
+    fetchData          = require('./fetch-data'),
+    formatResponse     = require('./format-response'),
+    channelConfig      = require('./channel-config'),
     setResponseContext = require('./context'),
-    setRequestIsSecure   = require('./secure'),
+    setRequestIsSecure = require('./secure'),
 
     frontendControllers,
     staticPostPermalink = routeMatch('/:slug/:edit?');
@@ -225,6 +226,62 @@ frontendControllers = {
         } else {
             return res.render(defaultPage, data);
         }
+    },
+    submitContactForm: function(req, res){
+        var name    = req.body.name,
+            email   = req.body.email,
+            message = req.body.message;
+
+        var dataFields = [name, email, message];
+
+        var invalid = _.any(dataFields, function (data) {
+          return !data || data.trim() == '';
+        });
+
+        if (invalid) {
+          res.send('params error');
+          return false;
+        }
+
+        var recipientRoles = [
+          'owner',
+          'admin',
+          'editor'
+        ];
+
+        api.users.browse({
+          limit: 'all',
+          include: 'roles',
+          force_emails: true
+        }).then(function (response) {
+          var users = response['users'];
+          var recipients = _.filter(users, function (user) {
+            return _.any(user.roles, function (role) {
+              return _.includes(
+                recipientRoles,
+                role.name.toLowerCase()
+              );
+            });
+          });
+
+          var toAddress = _.map(recipients, 'email').join(',');
+          var mailOptions = {
+              from: email,
+              to: toAddress,
+              subject: 'Mensaje desde ' + config.theme.title,
+              html: '<p>' + name + ' ' + email + ':</p>' +
+                    '<p>' + message + '</p>' +
+                    '<p>' + config.theme.title + ' - ' + config.url + '</p>'
+          };
+
+          mailer.send(mailOptions).then(function(data) {
+              res.status(200);
+              res.send('OK');
+          }).error(function(error){
+              res.status(500);
+              res.send('ERROR');
+          });
+        });
     }
 };
 

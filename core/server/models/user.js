@@ -126,7 +126,10 @@ User = ghostBookshelf.Model.extend({
         // remove password hash for security reasons
         delete attrs.password;
 
-        if (!options || !options.context || (!options.context.user && !options.context.internal)) {
+        var internal = !options || !options.context || (!options.context.user && !options.context.internal),
+            force_emails = !!options.force_emails;
+
+        if (internal && !force_emails) {
             delete attrs.email;
         }
 

@@ -8,7 +8,8 @@ var gulp         = require('gulp'),
     map          = require('vinyl-map'),
     concatJs     = require('gulp-concat'),
     uglify       = require('gulp-uglify'),
-    server       = require('gulp-express');
+    server       = require('gulp-express'),
+    env          = require('gulp-env');
 
 gulp.task('sass', function () {
   var minify = map(function (buff, filename) {
@@ -34,7 +35,13 @@ gulp.task('minify:js', function() {
 });
 
 gulp.task('server', function () {
-  server.run(['index.js'], {}, false);
+  env({file: '.env'});
+
+  var serverOptions = {
+    env: process.env
+  };
+
+  server.run(['index.js'], serverOptions, false);
 
   gulp.watch('content/themes/' + theme + '/lib/stylesheets/**/*.sass', ['sass']);
   gulp.watch('content/themes/' + theme + '/lib/js/**/*.js', ['minify:js']);

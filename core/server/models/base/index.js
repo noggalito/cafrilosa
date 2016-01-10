@@ -204,7 +204,7 @@ ghostBookshelf.Model = ghostBookshelf.Model.extend({
      */
     permittedOptions: function permittedOptions() {
         // terms to whitelist for all methods.
-        return ['context', 'include', 'transacting'];
+        return ['context', 'include', 'transacting', 'force_emails'];
     },
 
     /**

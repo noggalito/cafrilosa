@@ -114,6 +114,9 @@ frontendRoutes = function frontendRoutes(middleware) {
     // Default
     router.get('*', frontend.single);
 
+    //Mailer contact
+    router.post('/mail', frontend.submitContactForm);
+
     return router;
 };
 
