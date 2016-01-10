@@ -15,7 +15,7 @@
 {{> searchBox}}
 
 <section>
-{{#get "posts" limit="1" filter="tag:novedades"}}
+{{#get "posts" limit="1" filter="tag:novedades" order="published_at desc"}}
   {{#foreach posts}}
     <a href="{{url}}">
       <div class="newPost" style="background-image:url({{image}});">
