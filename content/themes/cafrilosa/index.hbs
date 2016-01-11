@@ -15,20 +15,20 @@
 {{> searchBox}}
 
 <section>
+{{#get "posts" limit="1" filter="tag:novedades" order="published_at desc"}}
   {{#foreach posts}}
-    {{#if @first}}
-  <a href="{{url}}">
-    <div class="newPost" style="background-image:url({{image}});">
-      <div class="container">
-        <article class="newPost-info">
-          <h3>Novedades</h3>
-          <h4>{{{title}}}</h4>
-        </article>
+    <a href="{{url}}">
+      <div class="newPost" style="background-image:url({{image}});">
+        <div class="container">
+          <article class="newPost-info">
+            <h3>Novedades</h3>
+            <h4>{{{title}}}</h4>
+          </article>
+        </div>
       </div>
-    </div>
-  </a>
-    {{/if}}
+    </a>
   {{/foreach}}
+{{/get}}
 </section>
 
 <section class="productionLines">
