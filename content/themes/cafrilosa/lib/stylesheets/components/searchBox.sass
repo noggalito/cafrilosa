@@ -2,12 +2,18 @@
   height: 60px
   background-color: $white-grey
   +flex(row, start, center)
+
+  form
+    margin: 0
+    display: block
+
   .box
     +flex(row, start, center)
     &-iconContainer
       background-color: $black
       padding: 0.5em 2em
       border-radius: $regular-radius 0 0 $regular-radius
+      cursor: pointer
       i
         color: white
         font-size: 20px
@@ -22,3 +28,8 @@
         border: 0
         border-radius: 0 $regular-radius $regular-radius 0
         padding: 0 2em
+
+.gcse-hidden
+  position: absolute
+  .gsc-input-box, .gsc-search-button
+    opacity: 0
