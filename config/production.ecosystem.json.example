@@ -4,7 +4,7 @@
       "name"      : "cafrilosa",
       "script"    : "index.js",
       "env_production" : {
-        "PORT"                     :"2368",
+        "PORT"                     :"2369",
         "NODE_ENV"                 :"production",
         "GCSE_CX"                  :"$GCSE_CX",
         "DB_CAFRILOSA_USER"        :"cafrilosa",

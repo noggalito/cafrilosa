@@ -2,8 +2,6 @@
   'use strict'
 
   var Slack   = require('slack-node'),
-      fs      = require('fs'),
-      path    = require('path'),
       exec    = require('child_process').exec;
 
   var defaults = {
