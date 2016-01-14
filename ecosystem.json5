@@ -3,7 +3,7 @@
     "production" : {
       "user"        : "miguel",
       "host"        : "cafrilosa.com",
-      "ref"         : "origin/production-deployment",
+      "ref"         : "origin/master",
       "repo"        : "git@github.com:noggalito/cafrilosa.git",
       "path"        : "~/cafrilosa",
       "post-deploy" : "npm install --production && pm2 startOrRestart ~/cafrilosa/shared/ecosystem.json --env production"
