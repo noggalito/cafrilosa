@@ -30,7 +30,7 @@ config = {
         host: '127.0.0.1',
         user: process.env.DB_CAFRILOSA_USER,
         password: process.env.DB_CAFRILOSA_PASSWORD,
-        database: process.env.DB_CAFRILOSA_DATANAME
+        database: process.env.DB_CAFRILOSA_DATABASE
       },
       debug: false
     },

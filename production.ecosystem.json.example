@@ -1,0 +1,19 @@
+{
+  "apps" : [
+    {
+      "name"      : "cafrilosa",
+      "script"    : "index.js",
+      "env_production" : {
+        "PORT"                     :"2368",
+        "NODE_ENV"                 :"production",
+        "GCSE_CX"                  :"$GCSE_CX",
+        "DB_CAFRILOSA_USER"        :"cafrilosa",
+        "DB_CAFRILOSA_DATABASE"    :"cafrilosa_production",
+        "DB_CAFRILOSA_PASSWORD"    :"$PASSWD",
+        "MAILGUN_SMTP_LOGIN"       :"$SMTP_LOGIN",
+        "MAILGUN_SMTP_PASSWORD"    :"$SMPT_PASSWD",
+        "GOOGLE_SITE_VERIFICATION" :"$GOOGLE_SITE_VERIFICATION"
+      }
+    }
+  ]
+}

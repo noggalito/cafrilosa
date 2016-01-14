@@ -1,0 +1,12 @@
+{
+  "deploy" : {
+    "production" : {
+      "user"        : "macool",
+      "host"        : "cafrilosa.com",
+      "ref"         : "origin/master",
+      "repo"        : "git@github.com:noggalito/cafrilosa.git",
+      "path"        : "~/cafrilosa",
+      "post-deploy" : "npm install --production && pm2 startOrRestart ~/pucara/shared/ecosystem.json --env production"
+    }
+  }
+}
