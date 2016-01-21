@@ -8,25 +8,22 @@
     });
   };
 
-  $form.on('submit',function(e) {
-    var name = $form.find( "input[name='name']" ).val(),
-      email = $form.find( "input[name='email']" ).val(),
-      message = $form.find( "textarea[name='message']" ).val(),
-      recaptcha = $form.find( "#g-recaptcha-response" ).val(),
-      url = $form.attr( "action" );
+  var alertTemplate = Handlebars.compile(
+    $('.contact-form-response-template').html()
+  );
 
-    var posting = $.post(url, {
-      name: name,
-      email: email,
-      message: message,
-      recaptcha: recaptcha
+  var formParams = function () {
+    var params = {};
+    $form.serializeArray().forEach(function (input) {
+      params[input.name] = input.value;
     });
+    return params;
+  };
 
-    var alertTemplate = Handlebars.compile(
-      $('.contact-form-response-template').html()
-    );
+  $form.on('submit',function(e) {
+    var url = $form.attr( "action" );
 
-    posting.done(function(data){
+    $.post(url, formParams()).done(function(data){
       var context = {
         name: name,
         kind: 'success',
@@ -34,13 +31,11 @@
       };
       $form.append(alertTemplate(context));
       clearInputs();
-    });
-
-    posting.fail(function(data){
+    }).fail(function(data){
       var context = {
         name: name,
         kind: 'danger',
-        message: ' no hemos podido enviar tu mensaje. Por favor inténtalo más tarde.'
+        message: 'no hemos podido enviar tu mensaje. Por favor inténtalo más tarde.'
       };
       $form.append(alertTemplate(context));
     });

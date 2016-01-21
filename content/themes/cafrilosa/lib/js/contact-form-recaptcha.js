@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  // to toggle recaptcha
+
   var btnSelector = '.submit-contact-form-btn',
       recaptchaWrapper = '.cafrilosa-recaptcha-wrapper';
 

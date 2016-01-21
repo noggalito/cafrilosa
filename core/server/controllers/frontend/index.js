@@ -239,7 +239,7 @@ frontendControllers = {
         });
 
         if (invalid) {
-          res.send('params error');
+          res.status(401).send('params error');
           return false;
         }
 
