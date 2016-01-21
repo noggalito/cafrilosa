@@ -12,12 +12,14 @@
     var name = $form.find( "input[name='name']" ).val(),
       email = $form.find( "input[name='email']" ).val(),
       message = $form.find( "textarea[name='message']" ).val(),
+      recaptcha = $form.find( "#g-recaptcha-response" ).val(),
       url = $form.attr( "action" );
 
     var posting = $.post(url, {
       name: name,
       email: email,
-      message: message
+      message: message,
+      recaptcha: recaptcha
     });
 
     var alertTemplate = Handlebars.compile(
