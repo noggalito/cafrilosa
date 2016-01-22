@@ -1,5 +1,8 @@
 // # Ghost Startup
 // Orchestrates the startup of Ghost when run from command line.
+
+require('newrelic');
+
 var express,
     ghost,
     parentApp,

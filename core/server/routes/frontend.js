@@ -1,3 +1,5 @@
+var cafrilosaRoutes = require ('./cafrilosa-routes');
+
 var frontend    = require('../controllers/frontend'),
     config      = require('../config'),
     errors      = require('../errors'),
@@ -114,8 +116,8 @@ frontendRoutes = function frontendRoutes(middleware) {
     // Default
     router.get('*', frontend.single);
 
-    //Mailer contact
-    router.post('/mail', frontend.submitContactForm);
+    // cafrilosa routes
+    cafrilosaRoutes.makeRoutes(router, frontend);
 
     return router;
 };

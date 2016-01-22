@@ -1,7 +1,7 @@
 {
   "name": "cafrilosa-website",
-  "version": "0.7.3",
-  "description": "Just a blogging platform.",
+  "version": "0.0.1",
+  "description": "cafrilosa website",
   "author": "noggalito",
   "homepage": "http://cafrilosa.com/",
   "keywords": [
@@ -41,6 +41,7 @@
     "downsize": "0.0.8",
     "express": "4.13.3",
     "express-hbs": "0.8.4",
+    "express-recaptcha": "^2.0.0",
     "extract-zip": "1.1.1",
     "fs-extra": "0.24.0",
     "ghost-cloudinary-store": "^1.1.2",
@@ -54,6 +55,7 @@
     "lodash": "3.10.1",
     "moment": "2.10.6",
     "morgan": "1.6.1",
+    "newrelic": "^1.25.0",
     "node-uuid": "1.4.3",
     "nodemailer": "0.7.1",
     "oauth2orize": "1.0.1",

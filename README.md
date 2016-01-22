@@ -22,3 +22,4 @@ these setup the database, smtp credentials and google search engine:
 
 - `GCSE_CX` is the Google Custom Search Engine key for the searchbox
 - `GOOGLE_SITE_VERIFICATION` is the id Google requires to validate the live site for indexing
+- `RECAPTCHA_KEY` is the google's recaptcha key for the client

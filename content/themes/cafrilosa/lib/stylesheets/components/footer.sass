@@ -45,10 +45,19 @@
           margin-bottom: 0
 
       &.contact-form
+        .btn, p
+          color: white
+        .g-recaptcha
+          text-align: center
+          & > div
+            display: inline-block
         +mobile-max
           max-width: 300px
-          input[type='submit']
+          .btn
             width: 100%
+        +tablet-min
+          .btn
+            min-width: 200px
 
     .footer-body
       margin: auto
