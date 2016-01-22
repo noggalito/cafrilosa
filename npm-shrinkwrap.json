@@ -476,6 +476,11 @@
       "from": "express-hbs@0.8.4",
       "resolved": "https://registry.npmjs.org/express-hbs/-/express-hbs-0.8.4.tgz"
     },
+    "express-recaptcha": {
+      "version": "2.0.0",
+      "from": "express-recaptcha@>=2.0.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/express-recaptcha/-/express-recaptcha-2.0.0.tgz"
+    },
     "extend": {
       "version": "1.3.0",
       "from": "extend@>=1.3.0 <1.4.0",
