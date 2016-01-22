@@ -2,7 +2,6 @@
   'use strict';
 
   var ContactFormRecaptcha = function () {
-
     this.recaptchaWrapper = '.cafrilosa-recaptcha-wrapper';
     this.eventListeners();
   };
