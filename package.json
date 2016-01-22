@@ -1,7 +1,7 @@
 {
   "name": "cafrilosa-website",
-  "version": "0.7.3",
-  "description": "Just a blogging platform.",
+  "version": "0.0.1",
+  "description": "cafrilosa website",
   "author": "noggalito",
   "homepage": "http://cafrilosa.com/",
   "keywords": [
@@ -55,6 +55,7 @@
     "lodash": "3.10.1",
     "moment": "2.10.6",
     "morgan": "1.6.1",
+    "newrelic": "^1.25.0",
     "node-uuid": "1.4.3",
     "nodemailer": "0.7.1",
     "oauth2orize": "1.0.1",
