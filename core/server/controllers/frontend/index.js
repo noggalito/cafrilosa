@@ -245,7 +245,7 @@ frontendControllers = {
 
         var recipientRoles = [
           'owner',
-          'admin',
+          'administrator',
           'editor'
         ];
 
