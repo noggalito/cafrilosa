@@ -43,9 +43,23 @@ navigation = function (options) {
         return new hbs.SafeString('');
     }
 
+    var isCurrent = function (url) {
+        /**
+          * discrepance between '/page/' and
+          * '/page' allowed for non-root paths
+          */
+        if (url === '/') {
+            return url === currentUrl;
+        }
+        else {
+            var urlRegexp = new RegExp(url);
+            return urlRegexp.test(currentUrl);
+        }
+    };
+
     output = navigationData.map(function (e) {
         var out = {};
-        out.current = e.url === currentUrl;
+        out.current = isCurrent(e.url);
         out.label = e.label;
         out.slug = _slugify(e.label);
         out.url = hbs.handlebars.Utils.escapeExpression(e.url);
