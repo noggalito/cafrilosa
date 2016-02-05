@@ -20,15 +20,15 @@
   CafrilosaMap.prototype.gmapsLoaded = function () {
     this.setLatLng();
     this.createMap();
-    this.createInfoWindow();
     this.createMarker();
+    this.createInfoWindow();
     this.infoWindowListener();
   };
 
   CafrilosaMap.prototype.setLatLng = function () {
     this.latLng = new google.maps.LatLng(
-      -3.976488,
-      -79.206602
+      -3.993202,
+      -79.198450
     );
   };
 
@@ -44,6 +44,7 @@
     this.infoWindow = new google.maps.InfoWindow({
       content: content
     });
+    this.toggleInfoWindow();
   };
 
   CafrilosaMap.prototype.createMarker = function () {
@@ -55,10 +56,15 @@
   };
 
   CafrilosaMap.prototype.infoWindowListener = function () {
-    var self = this;
-    self.marker.addListener('click', function () {
-      self.infoWindow.open(self.map, self.marker);
-    });
+    this.marker.addListener(
+      'click',
+      $.proxy(this.toggleInfoWindow, this)
+    );
+  };
+
+  CafrilosaMap.prototype.toggleInfoWindow = function () {
+    var map = this.infoWindow.getMap() ? null : this.map;
+    this.infoWindow.open(map, this.marker);
   };
 
   var selector = '.cafrilosa-map';
