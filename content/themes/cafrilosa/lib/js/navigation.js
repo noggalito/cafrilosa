@@ -4,10 +4,16 @@
   var btnMenu = '.btn-menu',
       hamburguerClasses = 'icon-icon-menu glyphicon-remove';
 
-  $(document).on('click', btnMenu, function (e) {
-    $(e.originalEvent.target).toggleClass(hamburguerClasses);
-    $('.nav .nav-list').toggleClass('is-active');
+  var toggleNavigation = function () {
+    $(document).trigger('navigation:toggle');
     return false;
+  };
+
+  $(document).on('click', btnMenu, toggleNavigation);
+
+  $(document).on('navigation:toggle', function () {
+    $(btnMenu).toggleClass(hamburguerClasses);
+    $('.nav').toggleClass('is-active');
   });
 
   $(window).on("scroll", stikyMenu );

@@ -1,7 +1,6 @@
 {{!< default}}
 {{#post}}
   {{> cover-page}}
-  {{> searchBox}}
 
   <section class="about-us-page">
     <div class="container antano">
@@ -48,14 +47,9 @@
     </div>
 
     <div class="container nuestro-equipo">
-      <div class="col-sm-8 col-sm-offset-2">
-        {{#get "posts" slug="nuestro-equipo" as |article|}}
-          {{> acerca-de-article article=article}}
-        {{/get}}
-      </div>
-      <div class="images">
-        <img src="{{asset 'images/nuestro-equipo.jpg'}}" />
-      </div>
+      {{#get "posts" slug="nuestro-equipo" as |article|}}
+        {{> acerca-de-team-article article=article}}
+      {{/get}}
     </div>
   </section>
 {{/post}}

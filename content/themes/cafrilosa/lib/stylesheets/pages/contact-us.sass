@@ -7,9 +7,14 @@ $secondRowHeight: 320px
     color: $cool-grey
   h2
     margin-top: 1em
+  .first-row, .second-row, .find-us > .row
+    max-width: 100%
+    margin: 0
   .cafrilosa-map
     margin: 3em auto
     height: 410px
+    +mobile-max
+      height: 350px
     .map-container
       height: 100%
     .cafrilosa-map-tooltip
@@ -28,7 +33,6 @@ $secondRowHeight: 320px
       position: absolute
       left: 0
   .delicatessen-img
-    background-image: url(../images/delicatessen.jpg)
     background-position: center
     background-size: cover
     background-repeat: no-repeat
