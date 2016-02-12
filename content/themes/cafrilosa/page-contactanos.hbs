@@ -1,32 +1,35 @@
 {{!< default}}
 {{#post}}
   {{> cover-page}}
-  {{> searchBox}}
 
   <section class="contact-us-page">
-    <div class="row first-row">
-      <p class="container col-sm-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. Sed sit amet arcu aliquet, molestie justo at, auctor nunc. Phasellus ligula ipsum.
-      </p>
+    {{#get "posts" slug="contactanos-mapa" as |article|}}
+      <div class="row first-row">
+        <div class="container col-sm-6">
+          {{split-content article part="1"}}
+        </div>
 
-      <div class="cafrilosa-map col-sm-6"></div>
-      <div class="hidden">
-        <div class="cafrilosa-map-tooltip">
-          <h4>{{@blog.title}}</h4>
-          <a target="_blank" href="https://goo.gl/maps/zeHfX4ypT7p">ver en google maps</a>
+        <div class="cafrilosa-map col-sm-6"></div>
+        <div class="hidden">
+          <div class="cafrilosa-map-tooltip">
+            <h4>{{@blog.title}}</h4>
+            <a target="_blank" href="https://goo.gl/aliXXR">ver en google maps</a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="row second-row">
-      <div class="col-sm-offset-6"></div>
+      <div class="row second-row">
+        <div class="col-sm-offset-6"></div>
 
-      <p class="text col-sm-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. Sed sit amet arcu aliquet, molestie justo at, auctor nunc. Phasellus ligula ipsum.
-      </p>
+        <div class="text col-sm-6">
+          {{split-content article part="2"}}
+        </div>
 
-      <div class="delicatessen-img col-sm-6"></div>
-    </div>
+        {{#article}}
+          <div class="delicatessen-img col-sm-6" style="background-image:url('{{image}}');"></div>
+        {{/article}}
+      </div>
+    {{/get}}
 
     <div class="clearfix"></div>
 
