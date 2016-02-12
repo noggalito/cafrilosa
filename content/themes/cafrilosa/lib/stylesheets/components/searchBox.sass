@@ -1,35 +1,93 @@
 .searchBox
   height: 60px
-  background-color: $white-grey
-  +flex(row, start, center)
 
-  form
-    margin: 0
-    display: block
+  +mobile-max
+    padding-top: 70px
+    height: 130px
+    background-color: $tomato
+
+  +tablet-min
+    margin-right: 30px
+    min-width: 200px
+    +flex(row, end, center)
 
   .box
-    +flex(row, start, center)
-    &-iconContainer
-      background-color: $black
-      padding: 0.5em 2em
-      border-radius: $regular-radius 0 0 $regular-radius
-      cursor: pointer
-      i
-        color: white
-        font-size: 20px
+    +mobile-max
+      border-bottom: 1px solid rgba(255, 255, 255, 0.8)
+      padding-bottom: 20px
+      +flex(row, center, center)
+
+    +tablet-min
+      +flex(row, end, center)
+
+    form
+      margin: 0
+      display: block
+      transition: all 0.5s
+      overflow: hidden
+
+      +mobile-max
+        max-width: 90%
+
+      +tablet-min
+        text-align: right
+        width: 0%
+        height: 30px
 
     &-input
-      height: 40px
       width: 100%
       input
         height: 100%
         width: 100%
         outline: none
         border: 0
-        border-radius: 0 $regular-radius $regular-radius 0
-        padding: 0 2em
+        border-radius: $regular-radius
+        padding: 0 1.3em
+        +mobile-max
+          height: 30px
+
+        +tablet-min
+          color: white
+          +placeholder
+            color: white
+
+    &.active
+      form
+        width: 100%
+        +tablet-min
+          padding-right: 10px
+
+    i
+      font-size: 18px
+      cursor: pointer
+      +mobile-max
+        color: white
+        margin-left: 10px
+        font-size: 20px
 
 .gcse-hidden
   position: absolute
-  .gsc-input-box, .gsc-search-button
+  z-index: -1
+  .gsc-results-wrapper-overlay
+    z-index: 100002
+    margin-top: 70px
+  .gsc-input
     opacity: 0
+  .gsc-input-box, .gsc-search-button, .gsc-control-cse
+    background-color: transparent
+    border: 0
+
++tablet-min
+  .navigation--home:not(.menu-fixed)
+    .searchBox
+      input
+        background-color: $tomato !important
+      i
+        color: black !important
+
+  .navigation
+    .searchBox
+      input
+        background-color: transparent
+      i
+        color: white
