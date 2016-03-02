@@ -1,5 +1,9 @@
 {{!< default}}
 {{#post}}
+  {{#has tag="product"}}
+    {{> four-oh-four}}
+  {{/has}}
+
   {{> cover-post}}
   <section class="u-paddingSection container post">
     <div class="meta-data">
