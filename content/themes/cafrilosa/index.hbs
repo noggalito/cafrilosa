@@ -79,7 +79,7 @@
       {{#get "posts" slug="mortadela-salami-y-pastel" as |article|}}
         {{#article}}
           <article class="col-xs-12 col-sm-6">
-            <div class="col-md-4">
+            <div class="col-md-10">
               <small>Línea</small>
               <h3>{{title}}</h3>
             </div>
@@ -115,6 +115,78 @@
               {{content}}
             </div>
           </article>
+        {{/article}}
+      {{/get}}
+    </div>
+  </div>
+</section>
+
+<section class="productionLines productionLines--invert">
+  <div class="container">
+    <div class="row">
+      {{#get "posts" slug="ahumados" as |article|}}
+        {{#article}}
+          <article class="col-xs-12 col-sm-6">
+            <div class="col-md-10">
+              <small>Línea</small>
+              <h3>{{title}}</h3>
+            </div>
+            <hr>
+            <div class="lead text-center">
+              {{content}}
+            </div>
+          </article>
+          <figure class="col-xs-12 col-sm-6 text-center">
+            <img src="{{image}}" alt="{{title}}" />
+          </figure>
+        {{/article}}
+      {{/get}}
+    </div>
+  </div>
+</section>
+
+<section class="productionLines">
+  <div class="container">
+    <div class="row">
+      {{#get "posts" slug="salchichas-tipo-vienesa" as |article|}}
+        {{#article}}
+          <figure class="col-xs-12 col-sm-6 text-center">
+            <img src="{{image}}" alt="{{title}}" />
+          </figure>
+          <article class="col-xs-12 col-sm-6">
+            <div class="col-md-4">
+              <small>Línea</small>
+              <h3>{{title}}</h3>
+            </div>
+            <hr>
+            <div class="lead text-center">
+              {{content}}
+            </div>
+          </article>
+        {{/article}}
+      {{/get}}
+    </div>
+  </div>
+</section>
+
+<section class="productionLines productionLines--invert">
+  <div class="container">
+    <div class="row">
+      {{#get "posts" slug="deshidratado" as |article|}}
+        {{#article}}
+          <article class="col-xs-12 col-sm-6">
+            <div class="col-md-10">
+              <small>Línea</small>
+              <h3>{{title}}</h3>
+            </div>
+            <hr>
+            <div class="lead text-center">
+              {{content}}
+            </div>
+          </article>
+          <figure class="col-xs-12 col-sm-6 text-center">
+            <img src="{{image}}" alt="{{title}}" />
+          </figure>
         {{/article}}
       {{/get}}
     </div>
