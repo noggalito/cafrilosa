@@ -33,14 +33,18 @@
 <section class="productionLines">
   <div class="container">
     <div class="row">
-      <article class="col-xs-12 col-sm-8 text-center">
-        <h2>Nuestras líneas de producción</h2>
-        <hr>
-        <p class="col-sm-9">
-          Contamos con 3 lineas de producción. Perfectas para cada ocación para disfrutar con amigos, familia y en eventos especiales. Pero no te quedes solamente con nuestras líneas de producción. Tenemos muchos más productos.
-        </p>
-        <a href="/productos" class="btn btn-primary" role="button">Ver Productos</a>
-      </article>
+      {{#get "posts" slug="lineas-produccion" as |article|}}
+        {{#article}}
+          <article class="col-xs-12 col-sm-8 text-center">
+            <h2>{{title}}</h2>
+            <hr>
+            <div class="col-sm-9">
+              {{content}}
+            </div>
+            <a href="/productos" class="btn btn-primary" role="button">Ver Productos</a>
+          </article>
+        {{/article}}
+      {{/get}}
     </div>
   </div>
 </section>
@@ -51,14 +55,20 @@
       <figure class="col-xs-12 col-sm-6 text-center">
         <img src="{{asset 'images/linea-economica.png'}}" alt="linea económica - Cafrilosa" />
       </figure>
-      <article class="col-xs-12 col-sm-6">
-        <div class="col-md-4">
-          <small>Línea</small>
-          <h3>Económica</h3>
-        </div>
-        <hr>
-        <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </article>
+      {{#get "posts" slug="chorizo-y-parrilla" as |article|}}
+        {{#article}}
+          <article class="col-xs-12 col-sm-6">
+            <div class="col-md-9">
+              <small>Línea de producción</small>
+              <h3>{{title}}</h3>
+            </div>
+            <hr>
+            <div class="lead text-center">
+              {{content}}
+            </div>
+          </article>
+        {{/article}}
+      {{/get}}
     </div>
   </div>
 </section>
