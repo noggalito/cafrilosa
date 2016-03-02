@@ -52,11 +52,11 @@
 <section class="productionLines">
   <div class="container">
     <div class="row">
-      <figure class="col-xs-12 col-sm-6 text-center">
-        <img src="{{asset 'images/linea-economica.png'}}" alt="linea económica - Cafrilosa" />
-      </figure>
       {{#get "posts" slug="chorizo-y-parrilla" as |article|}}
         {{#article}}
+          <figure class="col-xs-12 col-sm-6 text-center">
+            <img src="{{image}}" alt="{{title}}" />
+          </figure>
           <article class="col-xs-12 col-sm-6">
             <div class="col-md-9">
               <small>Línea de producción</small>
