@@ -4,6 +4,15 @@
 {{/tag}}
 <section class="u-paddingSection">
   <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="/productos">Productos</a></li>
+      <li class="active">
+        {{#tag}}
+          {{name}}
+        {{/tag}}
+      </li>
+    </ol>
+
     {{#foreach posts}}
       {{> product}}
     {{/foreach}}
