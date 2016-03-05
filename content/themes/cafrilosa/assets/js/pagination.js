@@ -8,6 +8,11 @@
     var pathName    = window.location.pathname;
     var newUrl      = pathName.split('/').slice(1,3).join('/');
 
+    if (parseInt(pageTotal, 10) === 0) {
+      // hide pagination if 0 pages
+      $('.pagination').hide();
+    }
+
     for (i = 1; i <= pageTotal; i++) {
       if (i == pageCurrent) {
         nav.innerHTML = nav.innerHTML + "<li class='active'><a href='#'>" + i + "</a></li>";
