@@ -1,7 +1,7 @@
 {
   "deploy" : {
     "production" : {
-      "user"        : "miguel",
+      "user"        : "macool",
       "host"        : "cafrilosa.com",
       "ref"         : "origin/master",
       "repo"        : "git@github.com:noggalito/cafrilosa.git",
