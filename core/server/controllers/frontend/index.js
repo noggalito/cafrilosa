@@ -243,28 +243,28 @@ frontendControllers = {
           return false;
         }
 
-        var recipientRoles = [
-          'owner',
-          'administrator',
-          'editor'
-        ];
-
-        api.users.browse({
-          limit: 'all',
-          include: 'roles',
-          force_emails: true
-        }).then(function (response) {
-          var users = response['users'];
-          var recipients = _.filter(users, function (user) {
-            return _.any(user.roles, function (role) {
-              return _.includes(
-                recipientRoles,
-                role.name.toLowerCase()
-              );
-            });
-          });
-
-          var toAddress = _.map(recipients, 'email').join(',');
+        // var recipientRoles = [
+        //   'owner',
+        //   'administrator',
+        //   'editor'
+        // ];
+        //
+        // api.users.browse({
+        //   limit: 'all',
+        //   include: 'roles',
+        //   force_emails: true
+        // }).then(function (response) {
+        //   var users = response['users'];
+        //   var recipients = _.filter(users, function (user) {
+        //     return _.any(user.roles, function (role) {
+        //       return _.includes(
+        //         recipientRoles,
+        //         role.name.toLowerCase()
+        //       );
+        //     });
+        //   });
+        //
+        //   var toAddress = _.map(recipients, 'email').join(',');
           var mailOptions = {
               from: email,
               to: toAddress,
