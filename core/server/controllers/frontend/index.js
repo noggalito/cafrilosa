@@ -265,6 +265,7 @@ frontendControllers = {
         //   });
         //
         //   var toAddress = _.map(recipients, 'email').join(',');
+        var toAddress = process.env.CONTACT_MAIL;
           var mailOptions = {
               from: email,
               to: toAddress,
@@ -281,7 +282,7 @@ frontendControllers = {
               res.status(500);
               res.send('ERROR');
           });
-        });
+        // });
     }
 };
 
