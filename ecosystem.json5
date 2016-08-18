@@ -6,7 +6,7 @@
       "ref"         : "origin/master",
       "repo"        : "git@github.com:noggalito/cafrilosa.git",
       "path"        : "~/cafrilosa",
-      "post-deploy" : "export PATH=~/.nvm/versions/v0.12.14/bin:$PATH && npm install --production && pm2 startOrRestart ~/cafrilosa/shared/ecosystem.json --env production"
+      "post-deploy" : "export PATH=~/.nvm/versions/v0.12.14/bin:$PATH && npm install --production && pm2 restart cafrilosa"
     }
   }
 }
